@@ -9,7 +9,7 @@ class BaseModel():
 
     def __init__(self):
         """Constructor"""
-        # generate a identifier unique and convert in the string
+        # generated a identifier unique and convert in the string
         self.id = str(uuid.uuid4())
         # get the date using datatime.now
         self.created_at = datetime.now()
