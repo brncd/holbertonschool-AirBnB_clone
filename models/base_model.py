@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-# generate a unique identifier for enyone class
+"""Base model"""
 import uuid
 from datetime import datetime
 
 
 class BaseModel():
-    """BaseModel"""
+    """class BaseModel"""
 
     def __init__(self):
         """Constructor"""
@@ -14,7 +14,7 @@ class BaseModel():
         # get the date using datatime.now
         self.created_at = datetime.now()
         # update the date
-        self.updated_at = self.created_at
+        self.updated_at = datetime.now()
 
     def __str__(self):
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
