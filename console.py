@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-""Console""
+"""Console."""
 
 import cmd
-import models
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -13,7 +12,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    ""HBNBCommand""
+    """HBNBCommand."""
 
     prompt = "(hbnb)"
     classes = {"User": User, "BaseModel": BaseModel,
@@ -21,17 +20,29 @@ class HBNBCommand(cmd.Cmd):
                "Place": Place, "Review": Review}
 
     def do_quit(self, arg):
-        """Quit the program"""
+        """Quit the program."""
         return True
 
     def do_EOF(self, arg):
-        """EOF command"""
+        """EOF command."""
         print()
         return True
 
     def emptyline(self):
-        """An empty line shouldn’t execute anything"""
+        """Empty line."""
         pass
+
+    def do_create(self, line):
+        """Create new instance of BaseModel."""
+        args = line.split()
+        if not line:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.l_classes.keys():
+            print("** class doesn't exist **")
+        else:
+            obj = HBNBCommand.l_classes[args[0]]()
+            obj.save()
+            print(obj.id)
 
 
 if __name__ == '__main__':
