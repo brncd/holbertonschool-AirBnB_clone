@@ -35,14 +35,14 @@ class FileStorage:
         from models.city import City
         from models.place import Place
         from models.review import Review
-        l_classes = {"BaseModel": BaseModel, "User": User, "State": State,
-                     "Amenity": Amenity, "City": City, "Place": Place,
-                     "Review": Review}
+        classes = {"BaseModel": BaseModel, "User": User, "State": State,
+                    "Amenity": Amenity, "City": City, "Place": Place,
+                    "Review": Review}
         try:
             with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
                 new_dict = json.load(f)
             for key, value in new_dict.items():
-                FileStorage.__objects[key] = l_classes[value["__class__"]
-                                                       ](**value)
+                FileStorage.__objects[key] = classes[value["__class__"]](
+                    **value)
         except FileNotFoundError:
             pass
