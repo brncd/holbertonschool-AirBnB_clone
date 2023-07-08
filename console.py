@@ -9,6 +9,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+import models
 
 
 class HBNBCommand(cmd.Cmd):
@@ -44,6 +45,21 @@ class HBNBCommand(cmd.Cmd):
             obj.save()
             print(obj.id)
 
+    def do_show(self, line):
+        """Print str repr based on class name and id."""
+        args = line.split()
+        if not line:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.l_classes.keys():
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        else:
+            key = "{}.{}".format(args[0], args[1])
+            if key in models.storage.all():
+                print(models.storage.all()[key])
+            else:
+                print("** no instance found **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
