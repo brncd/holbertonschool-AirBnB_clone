@@ -15,7 +15,7 @@ import models
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand."""
 
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
     classes = {"User": User, "BaseModel": BaseModel,
                "State": State, "City": City, "Amenity": Amenity,
                "Place": Place, "Review": Review}
