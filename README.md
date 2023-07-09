@@ -1,33 +1,3 @@
-AirBnB Clone
-This project is an implementation of the AirBnB clone, developed as part of the training program at Holberton School.
-
-Description
-The AirBnB Clone project is a recreation of the AirBnB website, allowing users to search and book accommodation, and owners to manage their listings. This implementation is based on a modular and object-oriented approach, using the Python programming language and a relational database.
-
-The main goal of this project is to develop a deep understanding of object-oriented programming, database manipulation, and user interface implementation through a command line interface (CLI).
-
-Use
-The project can be used through a command line interface. Once you have started the application, you can run different commands to interact with the database and perform actions such as creating users, managing accommodations, making reservations, etc.
-
-Here are some sample commands available:
-
-* Create a new user:
-
-(hbnb) create User
-
-* List all available accommodation:
-
-(hbnb) all Place
-
-* Make a reservation for a specific accommodation:
-
-(hbnb) reserve <place_id> <user_id>
-
-Project Architecture
-The AirBnB Clone project is divided into several modules, each with a specific responsibility:
-
-* models: Contains the classes that represent the domain objects, such as User, Place, Review, etc. These classes map to tables in the relational database.
-
-*engine: Provides an abstraction layer to interact with the database and perform CRUD (Create, Read, Update, Delete) operations on domain objects.
-
-*console: Implements the command line interface (CLI) to interact with the application and perform actions such as creating users, managing accommodations, making reservations, etc.
+<p align="center">
+<img src="https://camo.githubusercontent.com/a0c52a69dc410e983b8c63fa4aa57e83cb4157cd/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f696e7472616e65742d70726f6a656374732d66696c65732f686f6c626572746f6e7363686f6f6c2d6869676865722d6c6576656c5f70726f6772616d6d696e672b2f3236332f4842544e2d68626e622d46696e616c2e706e67" alt="hbnb" width=40% heigth=40% >
+</p>
