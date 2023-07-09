@@ -10,43 +10,35 @@ import os
 import pickle
 
 
-class Test_classBasemodel(unittest.TestCase):
-    """class that incliude all class"""
-
-    def test_attr_types(self):
-        """check the types of the class atributes"""
-        base0 = BaseModel()
-
-        self.assertEqual(type(base0.id), str)
-        self.assertEqual(type(base0.created_at), datetime)
+class BaseModelClass(unittest.TestCase):
+    """ Test basemodel """
+    def test_save(self):
+        inst = BaseModel()
+        cr = inst.created_at
+        up = inst.updated_at
+        inst.save()
+        self.assertEqual(cr, inst.created_at)
+        self.assertNotEqual(up, inst.updated_at)
 
     def test_to_dict(self):
-        """ check the correct convention of all atriutes of an instance /
-        into a dictionary"""
-        base1 = BaseModel()
-        new_dict = base1.to_dict()
+        inst = BaseModel()
+        d = {key: value for key, value in inst.__dict__.items()}
+        d['__class__'] = inst.__class__.__name__
+        d['created_at'] = inst.created_at.isoformat("T")
+        d['updated_at'] = inst.updated_at.isoformat("T")
+        self.assertEqual(d, inst.to_dict())
 
-        self.assertEqual(type(new_dict), dict)
-        self.assertEqual(type(new_dict["created_at"]), str)
-        self.assertEqual(type(new_dict["updated_at"]), str)
-
-    def test_str(self):
-        model = BaseModel()
-        prinf = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
-        self.assertEqual(prinf, model.__str__())
-
+    def test_string(self):
+        inst = BaseModel()
+        self.assertEqual(str, type(str(inst)))
+        s = f'[{inst.__class__.__name__}] ({inst.id}) {inst.__dict__}'
+        self.assertEqual(s, str(inst))
+    
     def test_save(self):
-        my_model = BaseModel()
+        b = BaseModel()
         try:
-            os.remove("file.pkl")
+            os.remove('file.json')
         except Exception:
             pass
-
-        with open("file.pkl", "wb") as file:
-            pickle.dump(my_model, file)
-
-        self.assertTrue(os.path.exists("file.pkl"))
-
-
-if __name__ == '__main__':
-    unittest.main()
+        b.save()
+        self.assertTrue(os.path.exists('file.json'))
