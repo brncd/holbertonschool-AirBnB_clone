@@ -9,3 +9,7 @@ class BasemodelClass(unittest.TestCase):
     def test_review(self):
         inst = State()
         self.assertEquals(inst.name, '')
+
+
+if __name__ == '__main__':
+    unittest.main()

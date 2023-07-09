@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Unittest for class BaseModel methods
-"""
+"""Unittest for class BaseModel methods"""
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -31,7 +29,7 @@ class Test_classBasemodel(unittest.TestCase):
 
     def test_str(self):
         model = BaseModel()
-        prinf = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        prinf = f"[{model.__class__.__name__}] ({model.id}) {model.__dict__}"
         self.assertEqual(prinf, model.__str__())
 
     def test_save(self):

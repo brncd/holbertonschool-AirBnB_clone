@@ -10,3 +10,7 @@ class BasemodelClass(unittest.TestCase):
         inst = City()
         self.assertEqual(inst.name, '')
         self.assertEqual(inst.state_id, '')
+
+
+if __name__ == '__main__':
+    unittest.main()

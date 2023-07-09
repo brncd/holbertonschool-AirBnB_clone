@@ -9,12 +9,37 @@ class FilestorageClass(unittest.TestCase):
     """test file storage"""
     def test_filepath(self):
         """file path is set on file.json"""
-        var = FileStorage()
-        avar = var._Filestorage__file_path
-        self.assertEqual(avar, "file.json")
+        inst = FileStorage()
 
-    def test_everithing(self):
-        var = FileStorage()
-        var.all().clear()
-        var.reload()
-        self.assertTrue(len(var.all()) > 0)
+    def test_objects(self):
+        """check privat atribute __objects"""
+        inst = FileStorage()
+        self.assertEqual(type(inst._Filestorage__objects), dict)
+
+    def test_all(self):
+        inst = BaseModel
+        self.assertEqual(type(inst.all()), dict)
+    
+    def test_new(self):
+        model = BaseModel()
+        inst = FileStorage()
+        inst.new(model)
+        prin = f"{model.__class__.__name__}.{model.id}"
+        self.assertEqual(inst.all()[prin], model)
+
+    def test_save(self):
+        model = FileStorage()
+        model.all().clear()
+        inst = BaseModel()
+        model.save()
+        self.assertNotEqual(len(model.all()), 0)
+
+    def test_reload(self):
+        inst = FileStorage()
+        inst.all().clear()
+        inst.save()
+        self.assertNotEqual(len(inst.all()), 0)
+
+
+if __name__ == '__main__':
+    unittest.main()

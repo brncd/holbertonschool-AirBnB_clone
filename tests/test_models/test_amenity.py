@@ -7,5 +7,10 @@ from models.amenity import Amenity
 class BasemodelClass(unittest.TestCase):
     """test basemodel"""
     def test_amenity(self):
+        """tests"""
         inst = Amenity()
-        self.assertEquals(inst.name, '')
+        self.assertEqual(inst.name, "")
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -12,3 +12,7 @@ class BasemodelClass(unittest.TestCase):
         self.assertEqual(inst.password, '')
         self.assertEqual(inst.first_name, '')
         self.assertEqual(inst.last_name, '')
+
+
+if __name__ == '__main__':
+    unittest.main()
