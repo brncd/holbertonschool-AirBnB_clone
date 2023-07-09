@@ -2,7 +2,7 @@
 """Base model"""
 from uuid import uuid4
 from datetime import datetime
-
+import models
 
 class BaseModel():
     """class BaseModel"""
@@ -23,6 +23,7 @@ class BaseModel():
             self.created_at = datetime.now()
             # update the date
             self.updated_at = datetime.now()
+        models.storage.new(self)
 
     def __str__(self):
         """string representation"""
@@ -31,6 +32,7 @@ class BaseModel():
     def save(self):
         """update date to the update_at"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """return a dictionary contain all keys/values"""
