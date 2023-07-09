@@ -7,7 +7,6 @@ import models
 
 class BaseModel():
     """class BaseModel"""
-
     def __init__(self, *args, **kwargs):
         """initialize values"""
         if kwargs:
@@ -24,7 +23,7 @@ class BaseModel():
             self.created_at = datetime.now()
             # update the date
             self.updated_at = datetime.now()
-        models.storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """string representation"""
