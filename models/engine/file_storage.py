@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """File storage"""
 import json
+from models.user import User
 from models import BaseModel
 
 
@@ -15,14 +16,14 @@ class FileStorage:
 
     def new(self, obj):
         """sets in __objects"""
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        key = "{} {}".format(obj.__class__.__name__, obj.id)
         FileStorage.__objects[key] = obj
 
     def save(self):
         """sets in __objects"""
         var = {}
         for i in self.__objects:
-            var[i] = FileStorage.__objects[i].to_dict()
+            var[i] = self.__objects[i].to_dict()
         with open(FileStorage.__file_path, 'w') as f:
             json.dump(var, f, default=str)
 
