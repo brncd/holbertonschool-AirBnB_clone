@@ -19,7 +19,3 @@ class BasemodelClass(unittest.TestCase):
         self.assertEquals(inst.latitude, 0.0)
         self.assertEquals(inst.longitude, 0.0)
         self.assertEquals(inst.amenity_ids, [])
-
-
-if __name__ == '__main__':
-    unittest.main()

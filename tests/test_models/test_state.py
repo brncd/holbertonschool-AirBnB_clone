@@ -10,6 +10,3 @@ class BasemodelClass(unittest.TestCase):
         inst = State()
         self.assertEquals(inst.name, '')
 
-
-if __name__ == '__main__':
-    unittest.main()

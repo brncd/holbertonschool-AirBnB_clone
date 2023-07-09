@@ -11,6 +11,3 @@ class BasemodelClass(unittest.TestCase):
         inst = Amenity()
         self.assertEqual(inst.name, "")
 
-
-if __name__ == '__main__':
-    unittest.main()

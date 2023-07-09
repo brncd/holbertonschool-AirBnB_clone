@@ -45,5 +45,3 @@ class Test_classBasemodel(unittest.TestCase):
         self.assertTrue(os.path.exists("file.pkl"))
 
 
-if __name__ == '__main__':
-    unittest.main()

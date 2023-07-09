@@ -19,6 +19,3 @@ class FilestorageClass(unittest.TestCase):
         storage.all().clear()
         storage.reload()
         self.assertTrue(len(storage.all()) > 0)
-
-if __name__ == '__main__':
-    unittest.main()

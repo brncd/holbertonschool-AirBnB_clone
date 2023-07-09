@@ -11,7 +11,3 @@ class BasemodelClass(unittest.TestCase):
         self.assertEquals(inst.place_id, '')
         self.assertEquals(inst.user_id, '')
         self.assertEquals(inst.text, '')
-
-
-if __name__ == '__main__':
-    unittest.main()
