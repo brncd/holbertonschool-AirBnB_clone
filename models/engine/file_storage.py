@@ -2,7 +2,7 @@
 """File storage"""
 import json
 from models.user import User
-from models import BaseModel
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -25,7 +25,7 @@ class FileStorage:
         for i in self.__objects:
             var[i] = self.__objects[i].to_dict()
         with open(FileStorage.__file_path, 'w') as f:
-            json.dump(var, f, default=str)
+            f.write(json.dump(var, default=str))
 
     def reload(self):
         """deserealizes"""
