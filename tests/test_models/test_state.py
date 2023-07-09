@@ -3,6 +3,7 @@
 import unittest
 from models.state import State
 
+
 class BasemodelClass(unittest.TestCase):
     """test basemodel"""
     def test_review(self):

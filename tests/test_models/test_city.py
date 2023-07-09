@@ -3,6 +3,7 @@
 import unittest
 from models.city import City
 
+
 class BasemodelClass(unittest.TestCase):
     """test basemodel"""
     def test_city(self):

@@ -3,6 +3,7 @@
 import unittest
 from models.user import User
 
+
 class BasemodelClass(unittest.TestCase):
     """test basemodel"""
     def test_UserEmail(self):

@@ -10,7 +10,6 @@ import os
 import pickle
 
 
-
 class Test_classBasemodel(unittest.TestCase):
     """class that incliude all class"""
 
@@ -19,10 +18,11 @@ class Test_classBasemodel(unittest.TestCase):
         base0 = BaseModel()
 
         self.assertEqual(type(base0.id), str)
-        self.assertEqual(type (base0.created_at), datetime)
+        self.assertEqual(type(base0.created_at), datetime)
 
     def test_to_dict(self):
-        """ check the correct convention of all atriutes of an instance into a dictionary """
+        """ check the correct convention of all atriutes of an instance /
+        into a dictionary"""
         base1 = BaseModel()
         new_dict = base1.to_dict()
 
@@ -32,7 +32,7 @@ class Test_classBasemodel(unittest.TestCase):
 
     def test_str(self):
         model = BaseModel()
-        prinf = "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        prinf = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
         self.assertEqual(prinf, model.__str__())
 
     def test_save(self):
@@ -46,7 +46,7 @@ class Test_classBasemodel(unittest.TestCase):
             pickle.dump(my_model, file)
 
         self.assertTrue(os.path.exists("file.pkl"))
-    
+
 
 if __name__ == '__main__':
     unittest.main()

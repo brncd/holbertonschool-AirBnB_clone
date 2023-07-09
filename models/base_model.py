@@ -4,6 +4,7 @@ from uuid import uuid4
 from datetime import datetime
 import models
 
+
 class BaseModel():
     """class BaseModel"""
 
@@ -38,7 +39,7 @@ class BaseModel():
         models.storage.save()
 
     def to_dict(self):
-        """return a dictionary contain all keys/values"""
+        """return a dictionary contain all akeys/values"""
         dict_aux = self.__dict__.copy()
         dict_aux['__class__'] = self.__class__.__name__
         dict_aux['created_at'] = self.created_at.isoformat()
