@@ -10,12 +10,15 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """initialize values"""
         if kwargs:
-            kwargs.pop('__class__', None)
-            for key, value in kwargs.items():
-                if key == 'created_at' or key == 'update_at':
-                    setattr(self, key, datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
-                else:
-                    setattr(self, key, value)
+            for i in kwargs:
+                if i == 'id':
+                    self.id = str(kwargs[i])
+                if i == 'created_at':
+                    t = datetime.strptime(kwargs[i], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = t
+                if i == 'updated_at':
+                    t = datetime.strptime(kwargs[i], '%Y-%m-%dT%H:%M:%S.%f')
+                    self.updated_at = t
         else:
             # generated a identifier unique and convert in the string
             self.id = str(uuid4())
@@ -23,7 +26,7 @@ class BaseModel():
             self.created_at = datetime.now()
             # update the date
             self.updated_at = datetime.now()
-            models.storage.new(self)
+        models.storage.new(self)
 
     def __str__(self):
         """string representation"""
