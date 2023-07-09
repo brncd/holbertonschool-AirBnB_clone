@@ -12,12 +12,12 @@ class FileStorage:
 
     def all(self):
         """Returns dictionary"""
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """sets in __objects"""
-        name = obj.__class__.name__ + '.' + obj.id
-        FileStorage.__objects[name] = obj
+        key = "{} {}".format(obj.__class__.__name__, obj.id)
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """sets in __objects"""
@@ -25,7 +25,7 @@ class FileStorage:
         for i in self.__objects:
             var[i] = self.__objects[i].to_dict()
         with open(FileStorage.__file_path, 'w') as f:
-            f.write(json.dump(var, default=str))
+            json.dump(var, f, default=str)
 
     def reload(self):
         """deserealizes"""

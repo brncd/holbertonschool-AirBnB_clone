@@ -24,7 +24,7 @@ class BaseModel():
             self.created_at = datetime.now()
             # update the date
             self.updated_at = datetime.now()
-        models.storage.save()
+        models.storage.new(self)
 
     def __str__(self):
         """string representation"""
