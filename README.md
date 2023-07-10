@@ -3,3 +3,8 @@
 </p>
 
 <h1 align="center">AirBnB clone: the project</h1>
+
+<h2>description</h2>
+The AirBnB Clone project is a recreation of the AirBnB website, allowing users to search and book accommodation, and owners to manage their listings. This implementation is based on a modular and object-oriented approach, using the Python programming language and a relational database.
+
+The main goal of this project is to develop a deep understanding of object-oriented programming, database manipulation, and user interface implementation through a command line interface (CLI).
