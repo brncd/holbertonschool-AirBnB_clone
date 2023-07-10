@@ -12,4 +12,30 @@ The main goal of this project is to develop a deep understanding of object-orien
 <h2>Characteristics</h2>
 <ul>
 <li> User registration and authentication.</li>
+<li>Search and filter of available accommodations.</li>
+<li>Creation, editing and deletion of accommodation ads.</li>
+<li>Reservation and management of reservations by users.</li>
+<li>Rating and user comments on accommodation.</li>
+</ul>
+
+<h2>Project Architecture</h2>
+<li><Models: Contains the classes that represent the domain objects, such as User, Place, Review, etc. These classes map to tables in the relational database.
+</li>
+<li>Engine: It provides an abstraction layer for interacting with the database and performing CRUD (Create, Read, Update, Delete) operations on domain objects.</li>
+<li>Console: It provides an abstraction layer for interacting with the database and performing CRUD (Create, Read, Update, Delete) operations on domain objects.</li>
+
+<h2>Use</h2>
+The project is used through a command line interface (CLI). Once you have started the application, you can run different commands to interact with the database and perform actions related to accommodation and reservation management.
+
+<p>A continuación, se presentan algunos ejemplos de comandos disponibles:</p>
+
+<ul>
+  <li>Create a new user:</li>
+  <pre><code>(hbnb) create User</code></pre>
+  
+  <li>List all available accommodation:</li>
+  <pre><code>(hbnb) all Place</code></pre>
+  
+  <li>Make a reservation for a specific accommodation:</li>
+  <pre><code>(hbnb) reserve &lt;place_id&gt; &lt;user_id&gt;</code></pre>
 </ul>
