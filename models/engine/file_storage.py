@@ -1,37 +1,38 @@
 #!/usr/bin/python3
-"""File storage"""
+"""File storage."""
 import json
-from models.user import User
 from models.base_model import BaseModel
 
 
 class FileStorage:
-    """class Filestorage"""
+    """Class Filestorage."""
+
     __file_path = 'file.json'
     __objects = {}
 
     def all(self):
-        """Returns dictionary"""
+        """Return dictionary."""
         return self.__objects
 
     def new(self, obj):
-        """sets in __objects"""
+        """Set in objects."""
         key = obj.__class__.__name__ + '.' + obj.id
         FileStorage.__objects[key] = obj
 
     def save(self):
-        """sets in __objects"""
+        """Set in objects."""
         var = {}
         for i in self.__objects:
             var[i] = self.__objects[i].to_dict()
         with open(FileStorage.__file_path, 'w') as f:
-            f.write(json.dump(var, default=str))
+            json.dump(var, f, default=str)
+            f.write('\n')
 
     def reload(self):
-        """deserealizes"""
+        """Deserealize json."""
         try:
-            with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
+            with open(self.__file_path, 'r') as f:
                 for x, y in json.load(f).items():
-                    FileStorage.__objects[x] = BaseModel(**y)
+                    self.__objects[x] = BaseModel(**y)
         except FileNotFoundError:
             pass
